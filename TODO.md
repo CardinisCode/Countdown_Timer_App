@@ -12,21 +12,21 @@ Each section follows this structure:
 ## Phase 0 — Project Setup
 
 ### Acceptance Criteria
-- [ ] `npm start` launches the Expo dev server without errors
-- [ ] Jest + React Native Testing Library are installed and configured
-- [ ] A sample smoke test runs and passes
-- [ ] Folder structure is in place: `src/engine/`, `src/hooks/`, `src/store/`, `src/screens/`
+- [x] `npm start` launches the Expo dev server without errors
+- [x] Jest + React Native Testing Library are installed and configured
+- [x] A sample smoke test runs and passes
+- [x] Folder structure is in place: `src/engine/`, `src/hooks/`, `src/store/`, `src/screens/`
 
 ### Write Tests
-- [ ] Write a smoke test that asserts `true === true` (verifies the test runner works)
+- [x] Write a smoke test that asserts `true === true` (verifies the test runner works)
 
 ### Write Code
-- [ ] Install Jest, RNTL, and related Expo preset packages
-- [ ] Add `jest.config.js` and update `package.json` test script
-- [ ] Create the folder structure under `src/`
+- [x] Install Jest, RNTL, and related Expo preset packages
+- [x] Add `jest.config.js` and update `package.json` test script
+- [x] Create the folder structure under `src/`
 
 ### Run Tests
-- [ ] `npm test` passes with zero failures
+- [x] `npm test` passes with zero failures
 
 ### You Test
 - [ ] Open the app in Expo Go or simulator and confirm it loads
