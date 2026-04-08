@@ -30,6 +30,8 @@ Each section follows this structure:
 
 ### You Test
 - [ ] Open the app in Expo Go or simulator and confirm it loads
+- [X] Create an Expo account
+
 
 ---
 
