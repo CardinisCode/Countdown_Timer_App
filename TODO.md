@@ -80,11 +80,11 @@ npm run ios
   - [x] reset button restores the original time
   - [x] completion state is shown when timer reaches zero
   - [x] completion state is cleared after reset
-- [ ] Update `screens/TimerScreen.test.tsx` — duration input tests:
-  - [ ] hour, minute, and second inputs are visible before the timer starts
-  - [ ] changing the inputs updates the time display
-  - [ ] inputs are hidden once the timer has started
-  - [ ] reset restores the inputs to their previously set values
+- [x] Update `screens/TimerScreen.test.tsx` — duration input tests:
+  - [x] hour, minute, and second inputs are visible before the timer starts
+  - [x] changing the inputs updates the time display
+  - [x] inputs are hidden once the timer has started
+  - [x] reset restores the inputs to their previously set values
 
 ### You Test (Maestro)
 - [x] Launch the app and confirm the timer screen is visible
