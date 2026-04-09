@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createTimer, Timer } from '../engine/timer';
 
 export interface UseTimerResult {
@@ -15,6 +15,13 @@ export function useTimer(duration: number): UseTimerResult {
   const [isRunning, setIsRunning] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const timerRef = useRef<Timer | null>(null);
+
+  useEffect(() => {
+    if (!isRunning && !isComplete) {
+      timerRef.current = null;
+      setTimeRemaining(duration);
+    }
+  }, [duration]);
 
   function getTimer(): Timer {
     if (!timerRef.current) {

@@ -69,7 +69,7 @@ npm run ios
 - [x] `src/engine/timer.ts` — pure countdown logic (no React, no UI)
 - [x] `src/hooks/useTimer.ts` — React hook wrapping the engine
 - [x] `src/screens/TimerScreen.tsx` — timer UI with start/pause/reset controls
-- [ ] Update `src/screens/TimerScreen.tsx` — add hour, minute, and second inputs so the user can set the duration before starting
+- [x] Update `src/screens/TimerScreen.tsx` — add hour, minute, and second inputs so the user can set the duration before starting
 
 ### Run Tests
 - [x] All timer engine and hook tests pass

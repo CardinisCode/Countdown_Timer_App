@@ -4,7 +4,7 @@ import { TimerScreen } from './src/screens/TimerScreen';
 export default function App() {
   return (
     <>
-      <TimerScreen initialDuration={60} />
+      <TimerScreen />
       <StatusBar style="auto" />
     </>
   );
