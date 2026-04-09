@@ -65,8 +65,8 @@ npm run ios
   - [x] isComplete resets to false after reset
 
 ### Write Code
-- [ ] `src/engine/timer.ts` — pure countdown logic (no React, no UI)
-- [ ] `src/hooks/useTimer.ts` — React hook wrapping the engine
+- [x] `src/engine/timer.ts` — pure countdown logic (no React, no UI)
+- [x] `src/hooks/useTimer.ts` — React hook wrapping the engine
 
 ### Run Tests
 - [ ] All timer engine and hook tests pass
