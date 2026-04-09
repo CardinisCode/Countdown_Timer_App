@@ -67,17 +67,17 @@ npm run ios
 ### Write Code
 - [x] `src/engine/timer.ts` — pure countdown logic (no React, no UI)
 - [x] `src/hooks/useTimer.ts` — React hook wrapping the engine
-- [ ] `src/screens/TimerScreen.tsx` — timer UI with duration input (hours, minutes, seconds) and start/pause/reset controls
+- [x] `src/screens/TimerScreen.tsx` — timer UI with duration input (hours, minutes, seconds) and start/pause/reset controls
 
 ### Run Tests
 - [x] All timer engine and hook tests pass
-- [ ] `screens/TimerScreen.test.tsx` — component tests:
-  - [ ] renders the initial time display correctly
-  - [ ] start button begins the countdown
-  - [ ] pause button freezes the countdown
-  - [ ] reset button restores the original time
-  - [ ] completion state is shown when timer reaches zero
-  - [ ] completion state is cleared after reset
+- [x] `screens/TimerScreen.test.tsx` — component tests:
+  - [x] renders the initial time display correctly
+  - [x] start button begins the countdown
+  - [x] pause button freezes the countdown
+  - [x] reset button restores the original time
+  - [x] completion state is shown when timer reaches zero
+  - [x] completion state is cleared after reset
 
 ### You Test (Maestro)
 - [ ] Launch the app and confirm the timer screen is visible
