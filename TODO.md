@@ -47,15 +47,22 @@ npm run ios
 - [ ] When the timer reaches zero it stops and signals completion (no UI required yet — a console log or callback is sufficient)
 
 ### Write Tests
-- [ ] `engine/timer.test.ts` — unit tests for the countdown logic:
-  - starts from the given duration
-  - decrements correctly each second
-  - stops at zero and fires the completion callback
-  - pause freezes the countdown
-  - reset returns to the original duration
-- [ ] `hooks/useTimer.test.ts` — hook tests:
-  - exposes correct state (timeRemaining, isRunning, isComplete)
-  - start / pause / reset actions update state correctly
+- [x] `engine/timer.test.ts` — unit tests for the countdown logic:
+  - [x] starts from the given duration
+  - [x] decrements correctly each second
+  - [x] stops at zero and fires the completion callback
+  - [x] does not decrement below zero
+  - [x] pause freezes the countdown
+  - [x] resumes correctly after pause
+  - [x] reset returns to the original duration and stops the timer
+  - [x] completion callback fires again after reset and re-run
+- [x] `hooks/useTimer.test.ts` — hook tests:
+  - [x] exposes correct initial state (timeRemaining, isRunning, isComplete)
+  - [x] start triggers the countdown and sets isRunning to true
+  - [x] pause freezes timeRemaining and sets isRunning to false
+  - [x] reset restores original duration, isRunning, and isComplete
+  - [x] isComplete becomes true when timer reaches zero
+  - [x] isComplete resets to false after reset
 
 ### Write Code
 - [ ] `src/engine/timer.ts` — pure countdown logic (no React, no UI)
