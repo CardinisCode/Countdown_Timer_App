@@ -44,7 +44,7 @@ npm run ios
 - [ ] User can set a duration (hours, minutes and seconds)
 - [ ] Timer counts down to zero
 - [ ] Timer can be started, paused, and reset
-- [ ] When the timer reaches zero it stops and signals completion (no UI required yet — a console log or callback is sufficient)
+- [ ] When the timer reaches zero it stops and signals completion
 
 ### Write Tests
 - [x] `engine/timer.test.ts` — unit tests for the countdown logic:
@@ -67,12 +67,25 @@ npm run ios
 ### Write Code
 - [x] `src/engine/timer.ts` — pure countdown logic (no React, no UI)
 - [x] `src/hooks/useTimer.ts` — React hook wrapping the engine
+- [ ] `src/screens/TimerScreen.tsx` — timer UI with duration input (hours, minutes, seconds) and start/pause/reset controls
 
 ### Run Tests
-- [ ] All timer engine and hook tests pass
+- [x] All timer engine and hook tests pass
+- [ ] `screens/TimerScreen.test.tsx` — component tests:
+  - [ ] renders the initial time display correctly
+  - [ ] start button begins the countdown
+  - [ ] pause button freezes the countdown
+  - [ ] reset button restores the original time
+  - [ ] completion state is shown when timer reaches zero
+  - [ ] completion state is cleared after reset
 
 ### You Test (Maestro)
-- [ ] Can set a duration, start, pause, and reset the timer
+- [ ] Launch the app and confirm the timer screen is visible
+- [ ] Set a duration and confirm the time display updates
+- [ ] Tap Start and confirm the countdown begins
+- [ ] Tap Pause and confirm the countdown freezes
+- [ ] Tap Reset and confirm the time returns to the original duration
+- [ ] Let the timer run to zero and confirm the completion state appears
 
 ---
 
@@ -92,6 +105,7 @@ npm run ios
 
 ### Write Code
 - [ ] Extend `src/engine/timer.ts` to accept an optional array of step times and trigger callbacks at each
+- [ ] Update `src/screens/TimerScreen.tsx` — add UI to define one step time
 
 ### Run Tests
 - [ ] All Phase 1 and Phase 2 tests pass
@@ -116,6 +130,7 @@ npm run ios
 
 ### Write Code
 - [ ] No engine changes expected — the step array already supports multiple entries; validate it handles two correctly
+- [ ] Update `src/screens/TimerScreen.tsx` — add UI to define a second step time
 
 ### Run Tests
 - [ ] All Phase 1, 2, and 3 tests pass
@@ -139,6 +154,7 @@ npm run ios
 
 ### Write Code
 - [ ] Validate the engine handles three steps correctly; add any guards needed (e.g. steps must be in descending order, less than total duration)
+- [ ] Update `src/screens/TimerScreen.tsx` — add UI to define a third step time
 
 ### Run Tests
 - [ ] All Phase 1–4 tests pass
@@ -168,6 +184,7 @@ npm run ios
 - [ ] Install `@react-native-async-storage/async-storage`
 - [ ] `src/store/presets.ts` — load, save, and deduplicate presets
 - [ ] `src/hooks/usePresets.ts` — React hook exposing the preset list and load action
+- [ ] Update `src/screens/TimerScreen.tsx` — add Presets section displaying saved timers
 
 ### Run Tests
 - [ ] All Phase 1–5 tests pass
