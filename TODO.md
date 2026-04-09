@@ -41,7 +41,8 @@ npm run ios
 ## Phase 1 — Single Timer
 
 ### Acceptance Criteria
-- [ ] User can set a duration (hours, minutes and seconds)
+- [ ] User can set a duration using hour, minute, and second inputs
+- [ ] Duration inputs are only editable before the timer starts
 - [ ] Timer counts down to zero
 - [ ] Timer can be started, paused, and reset
 - [ ] When the timer reaches zero it stops and signals completion
@@ -67,7 +68,8 @@ npm run ios
 ### Write Code
 - [x] `src/engine/timer.ts` — pure countdown logic (no React, no UI)
 - [x] `src/hooks/useTimer.ts` — React hook wrapping the engine
-- [x] `src/screens/TimerScreen.tsx` — timer UI with duration input (hours, minutes, seconds) and start/pause/reset controls
+- [x] `src/screens/TimerScreen.tsx` — timer UI with start/pause/reset controls
+- [ ] Update `src/screens/TimerScreen.tsx` — add hour, minute, and second inputs so the user can set the duration before starting
 
 ### Run Tests
 - [x] All timer engine and hook tests pass
@@ -78,14 +80,19 @@ npm run ios
   - [x] reset button restores the original time
   - [x] completion state is shown when timer reaches zero
   - [x] completion state is cleared after reset
+- [ ] Update `screens/TimerScreen.test.tsx` — duration input tests:
+  - [ ] hour, minute, and second inputs are visible before the timer starts
+  - [ ] changing the inputs updates the time display
+  - [ ] inputs are hidden once the timer has started
+  - [ ] reset restores the inputs to their previously set values
 
 ### You Test (Maestro)
-- [ ] Launch the app and confirm the timer screen is visible
-- [ ] Set a duration and confirm the time display updates
-- [ ] Tap Start and confirm the countdown begins
-- [ ] Tap Pause and confirm the countdown freezes
-- [ ] Tap Reset and confirm the time returns to the original duration
-- [ ] Let the timer run to zero and confirm the completion state appears
+- [x] Launch the app and confirm the timer screen is visible
+- [ ] Set a duration using the hour, minute, and second inputs and confirm the time display updates
+- [x] Tap Start and confirm the countdown begins
+- [x] Tap Pause and confirm the countdown freezes
+- [x] Tap Reset and confirm the time returns to the original duration
+- [x] Let the timer run to zero and confirm the completion state appears
 
 ---
 
