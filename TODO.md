@@ -29,8 +29,11 @@ Each section follows this structure:
 - [x] `npm test` passes with zero failures
 
 ### You Test
-- [ ] Open the app in Expo Go or simulator and confirm it loads
+- [x] Open the app in Expo Go or simulator and confirm it loads (using iOS Simulator via `npm run ios` — Expo Go on device incompatible with SDK 55)
 - [X] Create an Expo account
+- [F] Log into the Expo dev account in the mobile app
+Note to self: As of 09 Apr '26, Expo-Go appears to have a known login issue. Will attempt to run the server without logging in. I can run the server directly from the terminal: 
+npm run ios
 
 
 ---
