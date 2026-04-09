@@ -35,17 +35,16 @@ Each section follows this structure:
 Note to self: As of 09 Apr '26, Expo-Go appears to have a known login issue. Will attempt to run the server without logging in. I can run the server directly from the terminal: 
 npm run ios
 
-
 ---
 
 ## Phase 1 — Single Timer
 
 ### Acceptance Criteria
-- [ ] User can set a duration using hour, minute, and second inputs
-- [ ] Duration inputs are only editable before the timer starts
-- [ ] Timer counts down to zero
-- [ ] Timer can be started, paused, and reset
-- [ ] When the timer reaches zero it stops and signals completion
+- [x] User can set a duration using hour, minute, and second inputs
+- [x] Duration inputs are only editable before the timer starts
+- [x] Timer counts down to zero
+- [x] Timer can be started, paused, and reset
+- [x] When the timer reaches zero it stops and signals completion
 
 ### Write Tests
 - [x] `engine/timer.test.ts` — unit tests for the countdown logic:
@@ -73,26 +72,24 @@ npm run ios
 
 ### Run Tests
 - [x] All timer engine and hook tests pass
-- [x] `screens/TimerScreen.test.tsx` — component tests:
-  - [x] renders the initial time display correctly
-  - [x] start button begins the countdown
-  - [x] pause button freezes the countdown
-  - [x] reset button restores the original time
-  - [x] completion state is shown when timer reaches zero
-  - [x] completion state is cleared after reset
-- [x] Update `screens/TimerScreen.test.tsx` — duration input tests:
-  - [x] hour, minute, and second inputs are visible before the timer starts
-  - [x] changing the inputs updates the time display
-  - [x] inputs are hidden once the timer has started
-  - [x] reset restores the inputs to their previously set values
+- [x] `screens/TimerScreen.test.tsx` — component tests (40 tests total):
+  - [x] initial render — correct display, no completion message, correct buttons shown
+  - [x] inputs — all three editable, each updates time display, hidden when running, reappear on pause, restored on reset
+  - [x] edge cases — empty input treated as zero, non-numeric input ignored, zero duration
+  - [x] controls — start, pause, resume, reset while running, button visibility states
+  - [x] completion — message shown, buttons hidden, reset clears message, can re-run
 
 ### You Test (Maestro)
 - [x] Launch the app and confirm the timer screen is visible
-- [ ] Set a duration using the hour, minute, and second inputs and confirm the time display updates
+- [x] Set a duration using the hour, minute, and second inputs and confirm the time display updates
 - [x] Tap Start and confirm the countdown begins
 - [x] Tap Pause and confirm the countdown freezes
 - [x] Tap Reset and confirm the time returns to the original duration
 - [x] Let the timer run to zero and confirm the completion state appears
+
+### Update Log 
+
+- [x] Record all mistakes made, errors we've received, how we resolved those issues / bugs, and the lessons we've learnt in this section. 
 
 ---
 
@@ -120,6 +117,10 @@ npm run ios
 ### You Test (Maestro)
 - [ ] Can add one step time, see it trigger mid-countdown, and see completion at zero
 
+### Update Log 
+
+- [ ] Record all mistakes made, errors we've received, how we resolved those issues / bugs, and the lessons we've learnt in this section. 
+
 ---
 
 ## Phase 3 — Single Timer + 2 Step Times
@@ -145,6 +146,10 @@ npm run ios
 ### You Test (Maestro)
 - [ ] Can add two step times and observe both trigger correctly
 
+### Update Log 
+
+- [ ] Record all mistakes made, errors we've received, how we resolved those issues / bugs, and the lessons we've learnt in this section. 
+
 ---
 
 ## Phase 4 — Single Timer + 3 Step Times
@@ -168,6 +173,10 @@ npm run ios
 
 ### You Test (Maestro)
 - [ ] Can add three step times and observe all three trigger correctly
+
+### Update Log 
+
+- [ ] Record all mistakes made, errors we've received, how we resolved those issues / bugs, and the lessons we've learnt in this section. 
 
 ---
 
@@ -198,6 +207,9 @@ npm run ios
 
 ### You Test (Maestro)
 - [ ] Complete a timer, restart the app, confirm the preset appears and loads correctly
+
+- [ ] Record all mistakes made, errors we've received, how we resolved those issues / bugs, and the lessons we've learnt in this section. 
+
 
 ---
 

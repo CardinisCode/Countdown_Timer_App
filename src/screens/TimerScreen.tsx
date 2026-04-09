@@ -19,16 +19,16 @@ function toSeconds(h: number, m: number, s: number): number {
 
 export function TimerScreen({ initialDuration }: TimerScreenProps) {
   const [inputHours, setInputHours] = useState(
-    initialDuration !== undefined ? Math.floor(initialDuration / 3600) : 0
+    initialDuration !== undefined ? String(Math.floor(initialDuration / 3600)) : ''
   );
   const [inputMinutes, setInputMinutes] = useState(
-    initialDuration !== undefined ? Math.floor((initialDuration % 3600) / 60) : 0
+    initialDuration !== undefined ? String(Math.floor((initialDuration % 3600) / 60)) : ''
   );
   const [inputSeconds, setInputSeconds] = useState(
-    initialDuration !== undefined ? initialDuration % 60 : 0
+    initialDuration !== undefined ? String(initialDuration % 60) : ''
   );
 
-  const duration = toSeconds(inputHours, inputMinutes, inputSeconds);
+  const duration = toSeconds(parseInt(inputHours) || 0, parseInt(inputMinutes) || 0, parseInt(inputSeconds) || 0);
   const { timeRemaining, isRunning, isComplete, start, pause, reset } = useTimer(duration);
 
   function handleReset() {
@@ -55,8 +55,9 @@ export function TimerScreen({ initialDuration }: TimerScreenProps) {
               style={styles.input}
               keyboardType="number-pad"
               maxLength={2}
-              value={String(inputHours).padStart(2, '0')}
-              onChangeText={(v) => setInputHours(Math.min(99, parseInt(v) || 0))}
+              placeholder="00"
+              value={inputHours}
+              onChangeText={(v) => setInputHours(v.replace(/[^0-9]/g, ''))}
             />
             <Text style={styles.inputLabel}>h</Text>
           </View>
@@ -66,8 +67,9 @@ export function TimerScreen({ initialDuration }: TimerScreenProps) {
               style={styles.input}
               keyboardType="number-pad"
               maxLength={2}
-              value={String(inputMinutes).padStart(2, '0')}
-              onChangeText={(v) => setInputMinutes(Math.min(59, parseInt(v) || 0))}
+              placeholder="00"
+              value={inputMinutes}
+              onChangeText={(v) => setInputMinutes(v.replace(/[^0-9]/g, ''))}
             />
             <Text style={styles.inputLabel}>m</Text>
           </View>
@@ -77,8 +79,9 @@ export function TimerScreen({ initialDuration }: TimerScreenProps) {
               style={styles.input}
               keyboardType="number-pad"
               maxLength={2}
-              value={String(inputSeconds).padStart(2, '0')}
-              onChangeText={(v) => setInputSeconds(Math.min(59, parseInt(v) || 0))}
+              placeholder="00"
+              value={inputSeconds}
+              onChangeText={(v) => setInputSeconds(v.replace(/[^0-9]/g, ''))}
             />
             <Text style={styles.inputLabel}>s</Text>
           </View>

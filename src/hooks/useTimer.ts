@@ -50,7 +50,10 @@ export function useTimer(duration: number): UseTimerResult {
   }
 
   function reset() {
-    timerRef.current = null;
+    if (timerRef.current) {
+      timerRef.current.pause();
+      timerRef.current = null;
+    }
     setTimeRemaining(duration);
     setIsRunning(false);
     setIsComplete(false);
