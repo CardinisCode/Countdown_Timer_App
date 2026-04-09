@@ -97,15 +97,33 @@ npm run ios
 
 ### Acceptance Criteria
 - [ ] User can optionally define one intermediate time (a "step") between start and end
-- [ ] When the countdown reaches the step time, the app signals it (callback / console log)
+- [ ] When the countdown reaches the step time, the app signals it visually (e.g. a message or highlight on screen)
 - [ ] Timer continues counting down to zero after the step
 - [ ] Step is optional — behaviour from Phase 1 is unchanged when no step is set
+- [ ] Step input is editable only before the timer starts; it is hidden while the timer is running
+- [ ] Step input is cleared on reset
+- [ ] A step time ≥ total duration or ≤ 0 is rejected / ignored
 
 ### Write Tests
 - [ ] `engine/timer.test.ts` additions:
   - fires the step callback when the countdown reaches the step time
+  - step callback fires only once, not on every subsequent tick
+  - step callback fires again after reset and re-run
   - does not fire the step callback when no step is defined
   - fires completion callback at zero even when a step is set
+  - step time ≥ total duration is ignored / handled gracefully
+  - step time of zero is not treated as a valid step
+- [ ] `hooks/useTimer.test.ts` additions:
+  - hook exposes step state (e.g. `hasReachedStep`)
+  - `hasReachedStep` becomes true when the step time is reached
+  - `hasReachedStep` resets to false on reset
+  - hook behaves identically to Phase 1 when no step is set
+- [ ] `screens/TimerScreen.test.tsx` additions:
+  - step input is visible and editable before start
+  - step input is hidden while the timer is running
+  - step input is cleared/restored on reset
+  - visual signal appears when the step is reached
+  - no step input shown when step is not defined (optional UI state)
 
 ### Write Code
 - [ ] Extend `src/engine/timer.ts` to accept an optional array of step times and trigger callbacks at each
