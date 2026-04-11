@@ -1,6 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 
-export function RunningScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Running'>;
+
+export function RunningScreen({ route, navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Running Screen</Text>

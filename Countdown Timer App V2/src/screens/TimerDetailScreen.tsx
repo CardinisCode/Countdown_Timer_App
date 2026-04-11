@@ -1,6 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 
-export function TimerDetailScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'TimerDetail'>;
+
+export function TimerDetailScreen({ route, navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Timer Detail Screen</Text>
