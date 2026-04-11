@@ -1,20 +1,20 @@
 # Countdown Timer App V2 — Project TODO
 
-Each phase follows TDD:
+Each phase follows this order:
 1. Write failing tests
 2. Write code to make tests pass
-3. Testing (agent)
-4. Acceptance criteria (agent)
-5. Expo Go manual test tasks (run via simulator)
+3. Testing (agent) — automated: `npm test`, TypeScript, spec compliance, code quality
+4. Expo Go manual tests — you verify in the simulator
+5. Acceptance criteria — checked last, after both above pass; reflects user story outcomes
 
 ---
 
 ## Phase 1 — Project Scaffolding ✅ COMPLETE
 
-### Write Tests
+### Write Tests ✅
 - [x] Smoke test: app renders without crashing (`src/__tests__/smoke.test.ts`)
 
-### Write Code
+### Write Code ✅
 - [x] Create `package.json` with correct dependency versions (see `technical-spec.md`)
 - [x] Create `tsconfig.json`, `app.json`, `index.ts`, `App.tsx`
 - [x] Create folder structure: `src/engine`, `src/hooks`, `src/context`, `src/screens`, `src/navigation`
@@ -30,17 +30,14 @@ Each phase follows TDD:
 - [x] Spec compliance verified
 - [x] Code quality review passed
 
-### Acceptance Criteria ✅
-- [x] `npm test` runs and smoke test passes
-- [x] All 6 screen files exist under `src/screens/` with correct named exports
-- [x] `AppNavigator.tsx` exists with `RootStackParamList` exported
-- [x] `@react-native-async-storage/async-storage` present in `package.json`
-- [x] `App.tsx` wraps navigator in `SafeAreaProvider`
-
-### Expo Go Manual Tests
+### Expo Go Manual Tests ✅
 - [x] Run `npm run ios`
 - [x] Confirm the app opens without a crash and shows "My Timers" header
 - [x] Confirm "Home Screen" placeholder text is visible
+
+### Acceptance Criteria ✅
+- [x] The app launches on the simulator without crashing
+- [x] The user sees a screen titled "My Timers"
 
 ---
 
@@ -63,13 +60,19 @@ Each phase follows TDD:
 - [ ] Implement `reset(timer)`
 - [ ] Implement `isComplete(timer)`
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All engine tests pass
-- [ ] Engine has no React imports — pure logic only
-- [ ] Timer never goes below 0
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
-- [ ] N/A — engine is not yet wired to UI
+N/A — engine is not yet wired to UI
+
+### Acceptance Criteria
+- [ ] A timer started at a given duration counts down correctly each second
+- [ ] A timer that reaches zero does not continue below zero
+- [ ] A paused timer does not continue counting down
+- [ ] A resumed timer continues from where it was paused
+- [ ] A reset timer returns to its original starting duration
 
 ---
 
@@ -88,12 +91,17 @@ Each phase follows TDD:
 - [ ] Wire `setInterval` to engine `tick`
 - [ ] Expose controls: `start`, `pause`, `resume`, `reset`
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All hook tests pass
-- [ ] Hook uses Jest fake timers in tests (no real waiting)
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
-- [ ] N/A — hook not yet wired to UI
+N/A — hook not yet wired to UI
+
+### Acceptance Criteria
+- [ ] A timer started via the hook counts down correctly in a React component
+- [ ] A paused timer holds its remaining time until resumed
+- [ ] A reset timer displays its original duration again
 
 ---
 
@@ -112,17 +120,20 @@ Each phase follows TDD:
 - [ ] `src/screens/HomeScreen.tsx` — full implementation
 - [ ] `src/context/TimerContext.tsx` — provides saved timers list (in-memory for now)
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All HomeScreen tests pass
-- [ ] Empty state visible when no timers exist
-- [ ] Saved timers list visible when timers exist
-- [ ] Navigation to CreateTimerScreen works
-- [ ] Navigation to TimerDetailScreen works
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
-- [ ] Open app — confirm Home screen loads with empty state message
+- [ ] Open app — confirm empty state message is shown when no timers exist
 - [ ] Confirm "Add Timer" button is visible and tappable
 - [ ] Confirm tapping "Add Timer" navigates to Create Timer screen
+
+### Acceptance Criteria
+- [ ] When no timers have been created, the user sees a helpful empty state message
+- [ ] The user can see an "Add Timer" button to start creating a timer
+- [ ] When timers exist, the user sees each timer listed with its name and total duration
+- [ ] The user can tap a saved timer to view its details
 
 ---
 
@@ -144,11 +155,9 @@ Each phase follows TDD:
 - [ ] Auto-increment label logic (Timer0, Timer1...)
 - [ ] Wire to TimerContext `addTimer`
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All CreateTimerScreen tests pass
-- [ ] Save button correctly disabled/enabled
-- [ ] Default label applied when label is empty
-- [ ] Timer saved and visible on return to Home
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
 - [ ] Tap "Add Timer" on Home → confirm Create Timer screen opens
@@ -158,11 +167,19 @@ Each phase follows TDD:
 - [ ] Leave duration at 0:00:00 → confirm Save button is disabled
 - [ ] Fill in name + duration → confirm Save navigates to Timer Detail
 
+### Acceptance Criteria
+- [ ] The user can give their timer a name
+- [ ] The user can set a label and duration for their first segment
+- [ ] If the user leaves the segment label blank, a default label is assigned automatically
+- [ ] The user cannot save a segment with a duration of zero
+- [ ] After saving, the user is taken to the Timer Detail screen showing their new timer
+
 ---
 
 ## Phase 6 — Timer Detail + Add Segment Screens
 
 ### Write Tests
+
 #### TimerDetailScreen (`src/screens/__tests__/TimerDetailScreen.test.tsx`)
 - [ ] Renders timer name as heading
 - [ ] Renders total duration
@@ -183,25 +200,32 @@ Each phase follows TDD:
 - [ ] `src/screens/AddSegmentScreen.tsx`
 - [ ] Update TimerContext to support adding segments to existing timer
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All TimerDetailScreen and AddSegmentScreen tests pass
-- [ ] Total duration updates correctly as segments are added
-- [ ] Auto-increment label continues from where Create Timer left off
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
 - [ ] From Timer Detail, tap "+ Add" → confirm Add Segment screen opens
 - [ ] Tap label field → confirm keyboard appears
 - [ ] Tap duration fields → confirm numeric keyboard appears
-- [ ] Leave label empty → confirm label defaults to "Timer1" (or next in sequence)
+- [ ] Leave label empty → confirm label defaults to next in sequence (e.g. "Timer1")
 - [ ] Add segment → confirm return to Timer Detail with new segment in list
 - [ ] Confirm total duration updates after adding segment
 - [ ] Tap "Start" → confirm navigation to Running screen
+
+### Acceptance Criteria
+- [ ] The user can see their timer's name and all segments listed with durations
+- [ ] The user can see the total combined duration of all segments
+- [ ] The user can add as many segments as they need
+- [ ] Each new segment appears in the list immediately after saving
+- [ ] The user can start the timer from this screen
 
 ---
 
 ## Phase 7 — Running Screen & Segment Sequencing
 
 ### Write Tests
+
 #### useTimerSequence (`src/hooks/__tests__/useTimerSequence.test.ts`)
 - [ ] First segment starts as active (yellow)
 - [ ] All other segments start as upcoming (white)
@@ -229,12 +253,9 @@ Each phase follows TDD:
 - [ ] Colour state logic (completed / active / upcoming)
 - [ ] Total elapsed time counter (counts up)
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All useTimerSequence and RunningScreen tests pass
-- [ ] Colour states change correctly as segments complete
-- [ ] Pause/Resume works correctly
-- [ ] Reset restores active segment duration
-- [ ] Navigation to SegmentDoneScreen fires when countdown hits 0
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
 - [ ] Start a timer with 3 segments → confirm first segment is yellow (active)
@@ -244,6 +265,15 @@ Each phase follows TDD:
 - [ ] Tap Resume → confirm countdown continues
 - [ ] Tap Reset → confirm active segment duration resets to original
 - [ ] Let active segment reach 0:00:00 → confirm navigation to Segment Done screen
+
+### Acceptance Criteria
+- [ ] The user can see their timer's name and how long the session has been running
+- [ ] The user can clearly see which segment is currently active (yellow background)
+- [ ] The user can see which segments have been completed (green background)
+- [ ] The user can see which segments are still to come (white background)
+- [ ] The user can pause the active segment and resume it from where it left off
+- [ ] The user can reset the active segment back to its full duration
+- [ ] When a segment finishes, the user is taken to the Segment Done screen automatically
 
 ---
 
@@ -264,19 +294,24 @@ Each phase follows TDD:
 - [ ] Integrate `expo-haptics` vibration
 - [ ] "Finish" vs "Start Next" logic based on whether last segment
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All SegmentDoneScreen tests pass
-- [ ] Sound and vibration mocks called on screen load
-- [ ] Correct CTA shown ("Start Next" vs "Finish")
-- [ ] Navigation back to Running or Home works correctly
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
 - [ ] Let a segment finish → confirm Segment Done screen appears
-- [ ] Confirm sound plays (may need physical device or simulator sound on)
+- [ ] Confirm sound plays (turn simulator sound on)
 - [ ] Confirm vibration fires (physical device recommended)
 - [ ] Tap "Start Next" → confirm return to Running screen with next segment active (yellow)
-- [ ] Complete all segments → confirm "Finish" button appears
+- [ ] Complete all segments → confirm "Finish" button appears instead of "Start Next"
 - [ ] Tap "Finish" → confirm return to Home screen
+
+### Acceptance Criteria
+- [ ] The user is alerted with sound and vibration when a segment finishes
+- [ ] The user can see which segment just completed
+- [ ] The user can manually start the next segment at their own pace
+- [ ] When the last segment finishes, the user sees a "Finish" button instead of "Start Next"
+- [ ] After finishing, the user is returned to the Home screen
 
 ---
 
@@ -294,16 +329,19 @@ Each phase follows TDD:
 - [ ] Load timers on context mount (`useEffect`)
 - [ ] Save timers on every `addTimer` call
 
-### Acceptance Criteria
+### Testing (Agent)
 - [ ] All TimerContext persistence tests pass
-- [ ] Timers survive app restart (close and reopen in simulator)
-- [ ] Home screen shows saved timers on fresh app open
+- [ ] No TypeScript errors
 
 ### Expo Go Manual Tests
 - [ ] Create a timer with 2 segments
 - [ ] Close the app completely in the simulator
 - [ ] Reopen the app → confirm the timer appears on the Home screen
 - [ ] Tap the saved timer → confirm Timer Detail shows all segments intact
+
+### Acceptance Criteria
+- [ ] The user's saved timers are still available the next time they open the app
+- [ ] The user can tap a previously saved timer and see all its segments as they left them
 
 ---
 
@@ -312,9 +350,9 @@ Each phase follows TDD:
 - [ ] Run full test suite — all tests pass
 - [ ] Test full user flow: Create timer → Add segments → Run → Complete → Return home
 - [ ] Test toothbrush scenario: 2 segments × 2 min each
-- [ ] Test slow cooker scenario: 3 segments including 4hr segment
+- [ ] Test slow cooker scenario: 3 segments including a 4hr segment
 - [ ] Confirm colour transitions work end-to-end (white → yellow → green)
-- [ ] Confirm sound + vibration on all segment completions
+- [ ] Confirm sound + vibration fires on all segment completions
 - [ ] Confirm saved timers persist across multiple app restarts
 - [ ] Confirm keyboard appears on all input fields in simulator
 - [ ] Review all screen layouts for clarity and readability
