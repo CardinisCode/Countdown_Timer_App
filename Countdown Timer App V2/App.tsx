@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { View, Text } from 'react-native';
+import { AppNavigator } from './src/navigation/AppNavigator';
 
 export default function App() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Countdown Timer App V2</Text>
+    <>
+      <AppNavigator />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
