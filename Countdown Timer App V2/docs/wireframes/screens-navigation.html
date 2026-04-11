@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer App V2 — Screen Wireframes</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      padding: 32px 24px;
+      margin: 0;
+    }
+    h2 { font-size: 22px; margin-bottom: 4px; }
+    .subtitle { color: #666; font-size: 14px; margin-top: 0; margin-bottom: 24px; }
+    .section { margin-bottom: 24px; }
+    .label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+    }
+    .mockup {
+      border: 1.5px solid #ccc;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .mock-button {
+      border: 1.5px solid #999;
+      border-radius: 6px;
+      background: #f0f0f0;
+      padding: 5px 10px;
+      font-size: 12px;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .mock-input {
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      background: #fafafa;
+      padding: 5px 8px;
+      font-size: 12px;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Screens &amp; Navigation — V2</h2>
+<p class="subtitle">6 screens. Home is the starting point and presets list.</p>
+
+<div class="section">
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start;">
+
+    <!-- Screen 1: Home -->
+    <div style="width: 148px;">
+      <div class="label" style="text-align:center; margin-bottom: 8px;">1. Home</div>
+      <div class="mockup" style="min-height: 300px; padding: 12px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 12px; font-weight: bold; color: #000; text-align: center;">My Timers</div>
+        <div style="background: #f5f5f5; border-radius: 8px; padding: 8px; cursor: pointer;">
+          <div style="font-size: 11px; font-weight: bold; color: #222;">Slow Cooker Sunday</div>
+          <div style="font-size: 10px; color: #888;">3 segments · 4:15:00</div>
+        </div>
+        <div style="background: #f5f5f5; border-radius: 8px; padding: 8px; cursor: pointer;">
+          <div style="font-size: 11px; font-weight: bold; color: #222;">Morning Toothbrush</div>
+          <div style="font-size: 10px; color: #888;">2 segments · 4:00</div>
+        </div>
+        <div style="flex: 1;"></div>
+        <div class="mock-button" style="font-size: 11px; padding: 8px; text-align: center; background: #4CAF50; color: #000; border-color: #388e3c; font-weight: bold; display: block;">+ Add Timer</div>
+      </div>
+      <p style="font-size: 11px; color: #666; margin-top: 6px;">Landing screen. Saved timers listed. Tap one → screen 3. "Add Timer" → screen 2.</p>
+    </div>
+
+    <div style="align-self: center; font-size: 18px; color: #aaa; padding-top: 20px;">→</div>
+
+    <!-- Screen 2: Create Timer -->
+    <div style="width: 148px;">
+      <div class="label" style="text-align:center; margin-bottom: 8px;">2. Create Timer</div>
+      <div class="mockup" style="min-height: 300px; padding: 12px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 12px; font-weight: bold; color: #000;">New Timer</div>
+        <div>
+          <div style="font-size: 10px; color: #888; margin-bottom: 3px;">Timer name</div>
+          <div class="mock-input">e.g. Slow Cooker Sunday</div>
+        </div>
+        <div style="border-top: 1px solid #eee; padding-top: 8px;">
+          <div style="font-size: 10px; color: #888; margin-bottom: 6px;">First segment</div>
+          <div>
+            <div style="font-size: 10px; color: #888; margin-bottom: 3px;">Label</div>
+            <div class="mock-input">e.g. Brown meat</div>
+          </div>
+          <div style="margin-top: 6px;">
+            <div style="font-size: 10px; color: #888; margin-bottom: 3px;">Duration</div>
+            <div style="display: flex; gap: 3px; align-items: center;">
+              <div class="mock-input" style="width: 30px; text-align:center; padding: 4px;">00</div>
+              <span style="font-size: 10px;">h</span>
+              <div class="mock-input" style="width: 30px; text-align:center; padding: 4px;">10</div>
+              <span style="font-size: 10px;">m</span>
+              <div class="mock-input" style="width: 30px; text-align:center; padding: 4px;">00</div>
+              <span style="font-size: 10px;">s</span>
+            </div>
+          </div>
+        </div>
+        <div class="mock-button" style="font-size: 11px; padding: 8px; text-align: center; background: #4CAF50; color: #000; border-color: #388e3c; font-weight: bold; margin-top: auto; display: block;">Save</div>
+      </div>
+      <p style="font-size: 11px; color: #666; margin-top: 6px;">Name the timer + first segment. "Save" → screen 3.</p>
+    </div>
+
+    <div style="align-self: center; font-size: 18px; color: #aaa; padding-top: 20px;">→</div>
+
+    <!-- Screen 3: Timer Detail -->
+    <div style="width: 148px;">
+      <div class="label" style="text-align:center; margin-bottom: 8px;">3. Timer Detail</div>
+      <div class="mockup" style="min-height: 300px; padding: 12px; display: flex; flex-direction: column; gap: 7px;">
+        <div style="font-size: 12px; font-weight: bold; color: #000; text-align: center;">Slow Cooker Sunday</div>
+        <div style="font-size: 10px; color: #888; text-align: center;">Total: 4:15:00</div>
+        <div style="background: #f5f5f5; border-radius: 8px; padding: 7px;">
+          <div style="font-size: 11px; font-weight: bold; color: #222;">Brown meat</div>
+          <div style="font-size: 11px; color: #555;">10:00</div>
+        </div>
+        <div style="background: #f5f5f5; border-radius: 8px; padding: 7px;">
+          <div style="font-size: 11px; font-weight: bold; color: #222;">Add veg</div>
+          <div style="font-size: 11px; color: #555;">5:00</div>
+        </div>
+        <div style="background: #f5f5f5; border-radius: 8px; padding: 7px;">
+          <div style="font-size: 11px; font-weight: bold; color: #222;">Slow cook</div>
+          <div style="font-size: 11px; color: #555;">4:00:00</div>
+        </div>
+        <div style="display: flex; justify-content: space-between; gap: 6px; margin-top: auto; padding-top: 4px;">
+          <div class="mock-button" style="font-size: 10px; padding: 5px 8px;">+ Add</div>
+          <div class="mock-button" style="font-size: 10px; padding: 5px 8px; background: #4CAF50; color: #000; border-color: #388e3c; font-weight: bold;">▶ Start</div>
+        </div>
+      </div>
+      <p style="font-size: 11px; color: #666; margin-top: 6px;">"+ Add" → screen 4 (returns here). "Start" → screen 5.</p>
+    </div>
+
+    <!-- Screen 4: Add Segment -->
+    <div style="width: 148px;">
+      <div class="label" style="text-align:center; margin-bottom: 8px;">4. Add Segment</div>
+      <div class="mockup" style="min-height: 300px; padding: 12px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 12px; font-weight: bold; color: #000;">Add Segment</div>
+        <div>
+          <div style="font-size: 10px; color: #888; margin-bottom: 3px;">Label</div>
+          <div class="mock-input">e.g. Add sauce</div>
+        </div>
+        <div>
+          <div style="font-size: 10px; color: #888; margin-bottom: 3px;">Duration</div>
+          <div style="display: flex; gap: 3px; align-items: center;">
+            <div class="mock-input" style="width: 30px; text-align:center; padding: 4px;">00</div>
+            <span style="font-size: 10px;">h</span>
+            <div class="mock-input" style="width: 30px; text-align:center; padding: 4px;">05</div>
+            <span style="font-size: 10px;">m</span>
+            <div class="mock-input" style="width: 30px; text-align:center; padding: 4px;">00</div>
+            <span style="font-size: 10px;">s</span>
+          </div>
+        </div>
+        <div class="mock-button" style="font-size: 11px; padding: 8px; text-align: center; background: #4CAF50; color: #000; border-color: #388e3c; font-weight: bold; margin-top: auto; display: block;">Save &amp; Continue</div>
+      </div>
+      <p style="font-size: 11px; color: #666; margin-top: 6px;">"Save &amp; Continue" → back to screen 3.</p>
+    </div>
+
+    <!-- Screen 5: Running -->
+    <div style="width: 148px;">
+      <div class="label" style="text-align:center; margin-bottom: 8px;">5. Running</div>
+      <div class="mockup" style="min-height: 300px; padding: 12px; display: flex; flex-direction: column; gap: 6px;">
+        <div style="font-size: 12px; font-weight: bold; color: #000; text-align: center;">Slow Cooker Sunday</div>
+        <div style="font-size: 10px; color: #888; text-align: center;">Total running: 0:10:18</div>
+        <div style="background: #fff9c4; border-radius: 8px; padding: 8px; text-align: center;">
+          <div style="font-size: 11px; font-weight: bold; color: #000;">Brown meat</div>
+          <div style="font-size: 20px; font-weight: bold; color: #000;">8:42</div>
+          <div style="font-size: 10px; color: #333;">active</div>
+        </div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 7px; text-align: center;">
+          <div style="font-size: 11px; color: #aaa;">Add veg</div>
+          <div style="font-size: 12px; color: #aaa;">5:00</div>
+        </div>
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 7px; text-align: center;">
+          <div style="font-size: 11px; color: #aaa;">Slow cook</div>
+          <div style="font-size: 11px; color: #aaa;">4:00:00</div>
+        </div>
+        <div style="display: flex; gap: 6px; margin-top: auto; justify-content: center;">
+          <div class="mock-button" style="font-size: 10px; padding: 4px 8px;">⏸ Pause</div>
+          <div class="mock-button" style="font-size: 10px; padding: 4px 8px;">↺ Reset</div>
+        </div>
+      </div>
+      <p style="font-size: 11px; color: #666; margin-top: 6px;">Yellow = active, white = upcoming, green = completed. Segment ends → screen 6.</p>
+    </div>
+
+    <!-- Screen 6: Segment Done -->
+    <div style="width: 148px;">
+      <div class="label" style="text-align:center; margin-bottom: 8px;">6. Segment Done</div>
+      <div class="mockup" style="min-height: 300px; padding: 12px; display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center;">
+        <div style="font-size: 28px;">✅</div>
+        <div style="font-size: 13px; font-weight: bold; text-align: center; color: #000;">Brown meat<br/>complete!</div>
+        <div style="font-size: 11px; color: #888; text-align: center;">🔔 Sound + vibration</div>
+        <div class="mock-button" style="font-size: 12px; padding: 8px 16px; background: #4CAF50; color: #000; border-color: #388e3c; font-weight: bold; margin-top: 8px;">▶ Start Next</div>
+      </div>
+      <p style="font-size: 11px; color: #666; margin-top: 6px;">"Start Next" → back to screen 5. Last segment → "Finish" → screen 1.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="margin-top: 16px; padding: 12px; background: #f0f0f0; border-radius: 8px;">
+  <div class="label">Full navigation flow</div>
+  <p style="font-size: 12px; margin: 6px 0 0;">
+    <strong>New timer:</strong> 1 Home → 2 Create Timer → 3 Timer Detail ↔ 4 Add Segment → 5 Running → 6 Segment Done → 5 Running → ... → 1 Home (all done)<br><br>
+    <strong>Returning user:</strong> 1 Home → tap saved timer → 3 Timer Detail → 5 Running → ...
+  </p>
+</div>
+
+<div class="section" style="margin-top: 16px; padding: 12px; background: #fff9c4; border-radius: 8px;">
+  <div class="label">Colour states (Running screen)</div>
+  <p style="font-size: 12px; margin: 6px 0 0;">
+    <span style="background:#c8f7c5; padding: 2px 8px; border-radius: 4px; color:#000;">Green</span> = completed &nbsp;
+    <span style="background:#fff9c4; padding: 2px 8px; border-radius: 4px; color:#000; border: 1px solid #ddd;">Yellow</span> = active &nbsp;
+    <span style="background:#fff; padding: 2px 8px; border-radius: 4px; color:#aaa; border: 1px solid #ddd;">White</span> = upcoming
+  </p>
+</div>
+
+</body>
+</html>
